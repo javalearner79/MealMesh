@@ -1,0 +1,5 @@
+import { forwardRef, type ButtonHTMLAttributes } from "react";
+import { cn } from "@/lib/utils";
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & { variant?: "primary" | "secondary" | "danger" | "ghost"; size?: "sm" | "md" };
+export const Button = forwardRef<HTMLButtonElement, Props>(({ className, variant = "primary", size = "md", type = "button", ...props }, ref) => <button ref={ref} type={type} className={cn("inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:scale-[.98] motion-reduce:transform-none disabled:pointer-events-none disabled:opacity-50", size === "sm" ? "h-9 px-3 text-sm" : "h-11 px-4 text-sm", { "bg-primary text-primary-foreground shadow-lg shadow-blue-500/20 hover:-translate-y-0.5 hover:bg-blue-700": variant === "primary", "border bg-card hover:bg-muted": variant === "secondary", "bg-rose-500 text-white hover:bg-rose-600": variant === "danger", "hover:bg-muted": variant === "ghost" }, className)} {...props} />);
+Button.displayName = "Button";

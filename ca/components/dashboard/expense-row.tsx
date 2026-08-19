@@ -1,0 +1,5 @@
+import { ChevronRight, Utensils, type LucideIcon } from "lucide-react";
+import { formatCurrency } from "@/lib/utils";
+import type { Expense } from "@/types";
+const status = { settled: "Settled", pending: "You lent", "you-owe": "You owe" };
+export function ExpenseRow({ expense }: { expense: Expense }) { return <article className="flex items-center gap-3 rounded-xl p-3 transition-colors hover:bg-muted/70"><div className="grid size-10 place-items-center rounded-xl bg-orange-100 text-orange-600 dark:bg-orange-950"><Utensils className="size-4" /></div><div className="min-w-0 flex-1"><p className="truncate text-sm font-medium">{expense.title}</p><p className="mt-0.5 text-xs text-muted-foreground">{expense.group} · {expense.date}</p></div><div className="text-right"><p className="text-sm font-semibold">{formatCurrency(expense.amount)}</p><p className={"mt-0.5 text-xs " + (expense.status === "you-owe" ? "text-rose-500" : expense.status === "pending" ? "text-emerald-600" : "text-muted-foreground")}>{status[expense.status]}</p></div><ChevronRight className="size-4 text-muted-foreground" /></article>; }

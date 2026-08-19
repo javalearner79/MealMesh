@@ -1,0 +1,4 @@
+import { type LucideIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+export function PageHeader({ title, description, action, icon: Icon }: { title: string; description: string; action?: React.ReactNode; icon?: LucideIcon }) { return <div className="mb-8 flex flex-wrap items-end justify-between gap-4"><div className="flex gap-3">{Icon && <div className="grid size-11 place-items-center rounded-xl bg-blue-50 text-primary dark:bg-blue-950"><Icon className="size-5" /></div>}<div><h1 className="text-3xl font-semibold tracking-tight">{title}</h1><p className="mt-1 text-sm text-muted-foreground">{description}</p></div></div>{action}</div>; }
+export function PageFrame({ children }: { children: React.ReactNode }) { return <div className="mx-auto max-w-7xl p-4 md:p-8">{children}</div>; }
