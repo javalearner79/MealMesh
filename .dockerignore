@@ -1,0 +1,11 @@
+node_modules/
+.git/
+.env
+.env.*
+*.log
+ml/__pycache__/
+**/__pycache__/
+__pycache__/
+.agents/
+.codex/
+ca/
